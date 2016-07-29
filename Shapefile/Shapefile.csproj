@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{33C0E081-A127-46A5-ABEE-265FC0BDCADF}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Shapefile</RootNamespace>
+    <AssemblyName>Shapefile</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Painting\BitmapCanvas.cs" />
+    <Compile Include="Painting\Canvas.cs" />
+    <Compile Include="ShapefileLibrary\BoundingBox.cs" />
+    <Compile Include="ShapefileLibrary\Combiner.cs" />
+    <Compile Include="ShapefileLibrary\FileReader.cs" />
+    <Compile Include="ShapefileLibrary\FileWriter.cs" />
+    <Compile Include="Painting\Painter.cs" />
+    <Compile Include="Painting\Style.cs" />
+    <Compile Include="Painting\Point.cs" />
+    <Compile Include="Painting\Polygon.cs" />
+    <Compile Include="Painting\PolyLine.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Painting\Shape.cs" />
+    <Compile Include="ShapefileLibrary\Shapefile.cs" />
+    <Compile Include="Painting\ShapeType.cs" />
+    <Compile Include="ShapefileLibrary\ShpFile.cs" />
+    <Compile Include="ShapefileLibrary\ShxFile.cs" />
+    <Compile Include="ShapefileLibrary\Splitier.cs" />
+    <Compile Include="ShapefileLibrary\Transformer.cs" />
+    <Compile Include="Painting\Vertex.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
