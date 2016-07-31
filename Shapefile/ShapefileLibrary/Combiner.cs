@@ -14,7 +14,8 @@ namespace ShapefileLibrary
 
         public Shapefile Combine(IEnumerable<Shapefile> shapefiles)
         {
-            if(shapefiles==null){
+            if (shapefiles == null)
+            {
                 throw new ArgumentNullException("shapefiles");
             }
 
