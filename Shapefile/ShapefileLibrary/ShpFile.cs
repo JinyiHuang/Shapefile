@@ -219,7 +219,7 @@ namespace ShapefileLibrary
 
                 for (int i = 0; i < shapes.Count; i++)
                 {
-                    fw.WriteReverseInt(100 + i * 28, i);
+                    fw.WriteReverseInt(100 + i * 28, i + 1);
                     fw.WriteReverseInt(104 + i * 28, 10);
 
                     fw.WriteInt(108 + i * 28, 1);
@@ -240,25 +240,25 @@ namespace ShapefileLibrary
                 foreach (var item in index)
                 {
                     fw.WriteReverseInt(item.Key, ++number);
-                    fw.WriteReverseInt(item.Key + 4, item.Value);
+                    fw.WriteReverseInt(item.Key + 4, item.Value / 2);
 
                     fw.WriteInt(item.Key + 8, 3);
 
                     BoundingBox box = BoundingBox.GetBoundingBox(shapes[number - 1]);
                     fw.WriteDouble(item.Key + 12, box.XMin);
-                    fw.WriteDouble(item.Key + 20, box.XMax);
-                    fw.WriteDouble(item.Key + 28, box.YMin);
+                    fw.WriteDouble(item.Key + 20, box.YMin);
+                    fw.WriteDouble(item.Key + 28, box.XMax);
                     fw.WriteDouble(item.Key + 36, box.YMax);
 
                     fw.WriteInt(item.Key + 44, 1);
                     fw.WriteInt(item.Key + 48, shapes[number - 1].Vertexes.Count);
 
-                    fw.WriteInt(item.Key + 44, 0);
+                    fw.WriteInt(item.Key + 52, 0);
 
                     for (int i = 0; i < shapes[number-1].Vertexes.Count; i++)
                     {
-                        fw.WriteDouble(item.Key + 48 + i * 16, shapes[number - 1].Vertexes[i].X);
-                        fw.WriteDouble(item.Key + 56 + i * 16, shapes[number - 1].Vertexes[i].Y);
+                        fw.WriteDouble(item.Key + 56 + i * 16, shapes[number - 1].Vertexes[i].X);
+                        fw.WriteDouble(item.Key + 64 + i * 16, shapes[number - 1].Vertexes[i].Y);
                     }
                 }
             }
@@ -288,12 +288,12 @@ namespace ShapefileLibrary
                     fw.WriteInt(item.Key + 44, 1);
                     fw.WriteInt(item.Key + 48, shapes[number - 1].Vertexes.Count);
 
-                    fw.WriteInt(item.Key + 44, 0);
+                    fw.WriteInt(item.Key + 52, 0);
 
                     for (int i = 0; i < shapes[number - 1].Vertexes.Count; i++)
                     {
-                        fw.WriteDouble(item.Key + 48 + i * 16, shapes[number - 1].Vertexes[i].X);
-                        fw.WriteDouble(item.Key + 56 + i * 16, shapes[number - 1].Vertexes[i].Y);
+                        fw.WriteDouble(item.Key + 56 + i * 16, shapes[number - 1].Vertexes[i].X);
+                        fw.WriteDouble(item.Key + 64 + i * 16, shapes[number - 1].Vertexes[i].Y);
                     }
                 }
             }
@@ -335,7 +335,7 @@ namespace ShapefileLibrary
                     default:
                         break;
                 }
-                fw.WriteReverseInt(24, fileLength);
+                fw.WriteReverseInt(24, fileLength / 2);
 
                 //Write version
                 fw.WriteInt(28, 1000);

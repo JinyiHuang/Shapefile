@@ -63,7 +63,7 @@ namespace ShapefileLibrary
             }
         }
 
-        public bool Sava(string path)
+        public bool Save(string path)
         {
             if (string.IsNullOrEmpty(path))
             {

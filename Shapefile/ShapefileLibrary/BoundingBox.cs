@@ -102,10 +102,10 @@ namespace ShapefileLibrary
 
         internal protected static BoundingBox GetBoundingBox(Shape shape)
         {
-            double xMin = 0,
-                xMax = 0,
-                yMin = 0,
-                yMax = 0;
+            double xMin = double.MaxValue,
+                xMax = double.MinValue,
+                yMin = double.MaxValue,
+                yMax = double.MinValue;
 
             foreach (var vertex in shape.Vertexes)
             {
@@ -132,10 +132,10 @@ namespace ShapefileLibrary
 
         internal protected static BoundingBox GetBoundingBox(IEnumerable<Shape> shapes)
         {
-            double xMin = 0,
-                xMax = 0,
-                yMin = 0,
-                yMax = 0;
+            double xMin = double.MaxValue,
+                xMax = double.MinValue,
+                yMin = double.MaxValue,
+                yMax = double.MinValue;
 
             foreach (var shape in shapes)
             {
